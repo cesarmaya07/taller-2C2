@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h2>Convertidor de Dólares a Pesos</h2>
+  <form id="conversionForm">
+    <label for="dollars">Dólares:</label>
+    <input type="number" id="dollars" name="dollars" required>
+    <input type="submit" value="Convertir">
+  </form>
+  <p id="result"></p>
+
+  <script>
+    const exchangeRate = 4200; // Tasa representativa del valor del dólar
+
+    document.getElementById('conversionForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const dollars = parseFloat(document.getElementById('dollars').value);
+      const pesos = dollars * exchangeRate;
+      document.getElementById('result').textContent = `Pesos: ${pesos.toFixed(2)} COP`;
+    });
+  </script>
+</body>
+</html>

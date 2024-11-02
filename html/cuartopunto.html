@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form id="employeeForm">
+    <label for="employeeCode">Código:</label>
+    <input type="text" id="employeeCode" name="employeeCode" required>
+    <br>
+    <label for="employeeName">Nombre:</label>
+    <input type="text" id="employeeName" name="employeeName" required>
+    <br>
+    <button type="button" onclick="addEmployee()">Agregar Empleado</button>
+  </form>
+
+  <table id="employeeTable" border="1">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    function addEmployee() {
+      const code = document.getElementById('employeeCode').value;
+      const name = document.getElementById('employeeName').value;
+
+      if (code && name) {
+        const table = document.getElementById('employeeTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+
+        cell1.textContent = code;
+        cell2.textContent = name;
+
+        document.getElementById('employeeForm').reset();
+      } else {
+        alert('Por favor, complete todos los campos.');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio # 1</title>
+   
+  </head>
+  <body>
+    <ul id="lista">
+      <li>Lorem ipsum dolor sit amet</li>
+      <li>Consectetuer adipiscing elit</li>
+      <li>Sed mattis enim vitae orci</li>
+      <li>Phasellus libero</li>
+      <li>Maecenas nisl arcu</li>
+    </ul>
+    <input
+      type="button"
+      value="A�adir elemento"
+      onclick="anade();"
+    />
+
+    <script type="text/javascript">
+
+      var elementos = [
+        "Elemento 1",
+        "Elemento 2",
+        "Elemento 3",
+        "Elemento 4",
+        "Elemento 5",
+        "Elemento 6",
+        "Elemento 7",
+        "Elemento 8",
+        "Elemento 9",
+        "Elemento 10"
+      ];
+
+
+    function getRandomElement() {
+      return elementos[Math.floor(Math.random() * elementos.length)];
+    }
+
+    function anade() {
+      var lista = document.getElementById("lista");
+      var nuevoElemento = document.createElement("li");
+      nuevoElemento.appendChild(
+        document.createTextNode(getRandomElement())
+      );
+      lista.appendChild(nuevoElemento);
+    }
+    </script>
+  </body>
+</html>
